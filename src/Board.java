@@ -1,78 +1,58 @@
-public class Board {
+import java.util.HashMap;
 
-    //We are not sure if we need two players but if we do here they are
-    public int playerOne;
-    public int playerTwo;
+/**
+ * Each ship is broken down into it's specific index info
+ * That is then stored in a map with a key unique to each index.
+ * When constructing the board now, all info can be had by simply calling the map
+ * with the key for each index
+ */
+public abstract class Board {
+    //  0  1  2  3  4  5  6  7  8  9
+    // +–––––––––––––––––––––––––––––+
+    //A|__|__|__|__|__|__|__|__|__|__|
+    //B|__|__|__|__|__|__|__|__|__|__|
+    //C|__|__|__|__|__|__|__|__|__|__|
+    //D|__|__|__|__|__|__|__|__|__|__|
+    //E|__|__|__|__|__|__|__|__|__|__|
+    //F|__|__|__|__|__|__|__|__|__|__|
+    //G|__|__|__|__|__|__|__|__|__|__|
+    //H|__|__|__|__|__|__|__|__|__|__|
+    //I|__|__|__|__|__|__|__|__|__|__|
+    //J|__|__|__|__|__|__|__|__|__|__|
 
-    //IN CASE: we want to change the length and widths of the board.
-    private int boardLength;
-    private int boardWidth;
+    private HashMap<Integer,ShipIdx> gameBoard;
+    private int NumRows = 10;
+    private int NumCols = 10;
 
-    //Array that represents the board
-    private char[][] battleshipBoard = new char[boardLength][boardWidth];
-
-
-    /**
-     *Board Constructor: Creates an empty battleship board
-     */
-    public Board(){};
-
-    /**
-     * getRow: Gets the row number
-     * @param location: user puts the location/box number
-     * @return: returns the row number
-     */
-    public int getRow(int location){
-        return 0;
+    public Board()
+    {
+        gameBoard = new HashMap();
+    }
+    public static int findKey(int row, int col)
+    {
+        int counter = 0;
+        counter = (row * 50) + (col * 2);
+        return counter;
+    }
+    public void addShip (Ship s)
+    {
+        for (int i = 0; i < s.getCellsSize(); i++)
+            gameBoard.put(findKey(s.getIdx(i).getRow(),s.getIdx(i).getCol()), s.getIdx(i));
+//TODO: make ship know require a direction to face, and then given the starting coords, have it find the values for each idx and set them
     }
 
-    /**
-     * getColumn: Gets the column number
-     * @param location: user puts the location/box number
-     * @return: returns the column number
-     */
-    public int getColumn(int location){
-        return 0;
-    }
+//    public static void main(String[] args) {//indexes and their corresponding keys.
+//        for (int i = 0; i < 10; i++)
+//        {
+//            for (int j = 0; j < 10; j++)
+//            {
+//                int l = findKey(i,j);
+//                System.out.println(l + " At index " + i + "," + j);
+//            }
+//        }
+//
+//    }
+//
 
-    /**
-     * setShips: will set the ships of that player
-     * @param currentPlayer: user puts in whose turn it is
-     */
-    public void setShips(int currentPlayer){};
-
-    /**
-     * turn: shoots a canon at location on the board
-     * @param currentPlayer: user puts in whose turn it is
-     */
-    public void turn(int currentPlayer){}
-
-    /**
-     * isHit: lets the user know if it is hit
-     * @param currentPlayer: user inputs the current player
-     * @return: returns if it is a hit
-     */
-    public boolean isHit(int currentPlayer){
-        return false;
-    }
-
-    /**
-     * spaceOccupied: Lets the user know if there has been a shot there before
-     * @param row
-     * @param column
-     * @return: true or false based on if the space has been shot at or not
-     */
-    public boolean spaceOccupied(int row, int column){
-        return false;
-    }
-
-    /**
-     * hasWon: tests to see if one players ships have all been sunk
-     * @param currentPlayer
-     * @return: Returns true if a player has won
-     */
-    public boolean hasWon(int currentPlayer){
-        return false;
-    }
 
 }

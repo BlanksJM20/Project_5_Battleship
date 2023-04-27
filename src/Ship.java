@@ -1,70 +1,65 @@
-    public class Ship {
-        // private boolean horizontal;
-        private String name;
-        private int size;
-        private boolean[] cells;
-        private int numHits;
-        private int boardRow;
-        private int boardCol;
+import java.util.ArrayList;
 
-        public Ship (boolean hor, String name, int size)
+/**
+ * This class has the ships name and size, and an arraylist of an objects that has
+ * specified info for each cell.
+ */
+public class Ship {
+    private String name;
+
+    private ArrayList<ShipIdx> cells;
+
+    public Ship (String name, int size, int row, int col)
+    {
+
+        this.name = name;
+
+        for (int i = 0; i < size; i++)
         {
-            cells = new boolean[size];
-            this.size = size;
-            this.name = name;
-            // horizontal = hor;
-            for (int i = 0; i < cells.length; i++)
-            {
-                cells[i]  = false;
-            }
-
+            ShipIdx e = new ShipIdx(false);
+            cells.add(e);
         }
 
-        public int getBoardCol() {
-            return boardCol;
-        }
+    }
+    public ShipIdx getIdx (int Index)
+    {
+        return cells.get(Index);
+    }
 
-        public String getName() {
-            return name;
-        }
 
-        public int getBoardRow() {
-            return boardRow;
-        }
+    public String getName() {
+        return name;
+    }
+    public int getCellsSize ()
+    {
+        return cells.size();
+    }
 
-        public void setShip (int row, int col)
+    public void isHit (int index)
+    {
+        if (cells.get(index).getIsHit() != true)
         {
-            boardCol = col;
-            boardRow = row;
+            cells.get(index).setHit(true);
+
         }
-
-        public void isHit (int index)
+        else
         {
-            if (cells[index] != true)
-            {
-                cells[index]= true;
-                numHits++;
-            }
-            else
-            {
-                System.out.println("ERROR. ALREADY REGISTERED THE HIT. SHIPS.IsHIT ");
-            }
-        }
-
-
-        public boolean isSunk()
-        {
-            int count = 0;
-            for (int i = 0; i < cells.length; i++)
-            {
-                if (!cells[i] )
-                {
-                    return false;
-                }
-
-            }
-            return true;
+            System.out.println("ERROR. ALREADY REGISTERED THE HIT. SHIPS.IsHIT ");
         }
     }
 
 
+    public boolean isSunk()
+    {
+        int count = 0;
+        for (int i = 0; i < cells.size(); i++)
+        {
+            if (!cells.get(i).getIsHit() )
+            {
+                return false;
+            }
+
+        }
+        return true;
+    }
+}
