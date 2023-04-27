@@ -1,4 +1,3 @@
-public class Ship {
     public class Ship {
         // private boolean horizontal;
         private String name;
@@ -68,4 +67,4 @@ public class Ship {
         }
     }
 
-}
+
