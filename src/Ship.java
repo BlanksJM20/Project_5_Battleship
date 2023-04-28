@@ -41,31 +41,5 @@ public class Ship {
         return cells.size();
     }
 
-//    public void markHit (int index)
-//    {
-//        if (cells.get(index).getIsHit() != true)
-//        {
-//            cells.get(index).setHit(true);
-//
-//        }
-//        else
-//        {
-//            System.out.println("ERROR. ALREADY REGISTERED THE HIT. SHIPS.IsHIT ");
-//        }
-//    }
 
-
-//    public boolean isSunk()
-//    {
-//        int count = 0;
-//        for (int i = 0; i < cells.size(); i++)
-//        {
-//            if (!cells.get(i).getIsHit() )
-//            {
-//            return false;
-//            }
-//
-//        }
-//        return true;
-//    }
 }

@@ -204,19 +204,19 @@ public class Board {
     }
 
 
-////To string method tests.
-//        public static void main (String[]args) throws Exception {
-//            Board b = new Board();
-//            System.out.println(b.shipLocationBoardToString());
-//            Ship s = new Ship("BattleShip", 5, true);
-//            b.addShip(s, 3, 5);
-//            System.out.println(b.shipLocationBoardToString());
-//            b.markHit(3,5);
-//            b.markHit(3,4);
-//            System.out.println(b.hitLocationToString());
-//
-//
-//        }
+//To string method tests.
+        public static void main (String[]args) throws Exception {
+            Board b = new Board();
+            System.out.println(b.shipLocationBoardToString());
+            Ship s = new Ship("BattleShip", 5, true);
+            b.addShip(s, 3, 5);
+            System.out.println(b.shipLocationBoardToString());
+            b.markHit(3,5);
+            b.markHit(3,4);
+            System.out.println(b.hitLocationToString());
+
+
+        }
 }
 
 
