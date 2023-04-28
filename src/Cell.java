@@ -1,25 +1,20 @@
-import java.util.HashMap;
-
 /**
  * This class contains detailed information on each cell
  */
-public class ShipIdx {
+public class Cell {
 
     private boolean isHit;
-    private int col;
-    private int row;
+    private boolean isShip;
 
-    public int getCol() {
-        return col;
-    }
 
-    public int getRow() {
-        return row;
-    }
-
-    public ShipIdx (boolean isHit)
+    public Cell(boolean isHit, boolean isShip)
     {
         this.isHit = isHit;
+        this.isShip = isShip;
+    }
+
+    public boolean getIsShip() {
+        return isShip;
     }
 
     public boolean getIsHit() {
