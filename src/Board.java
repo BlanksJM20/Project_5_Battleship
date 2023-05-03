@@ -38,11 +38,23 @@ public class Board {
             }
         }
     }
-    public static int findKey(int row, int col)
+    public int findKey(int row, int col)
     {
         int counter = 0;
         counter = (row * 50) + (col * 2);
         return counter;
+    }
+
+    public int getNumCols() {
+        return NumCols;
+    }
+
+    public int getNumRows() {
+        return NumRows;
+    }
+
+    public HashMap<Integer, Cell> getGameBoard() {
+        return gameBoard;
     }
 
     /**
@@ -58,7 +70,7 @@ public class Board {
         {
             for (int i = col; i < col +s.getCellsSize()-1; i++)
             {
-                if (gameBoard.get(findKey(row,i)) != null && !gameBoard.get(findKey(i,col)).getIsShip())
+                if (gameBoard.get(findKey(row,i)) != null && gameBoard.get(findKey(i,col)).getIsShip())
                 {
                     return false;
                 }
@@ -68,7 +80,7 @@ public class Board {
         {
             for (int i = row; i < row +s.getCellsSize()-1; i++)//removed -1
             {
-                if (gameBoard.get(findKey(i,col)) != null)
+                if (gameBoard.get(findKey(i,col)) != null && gameBoard.get(findKey(i,col)).getIsShip())
                 {
                     return  false;
                 }
@@ -77,6 +89,7 @@ public class Board {
         return true;
 
     }
+
 
     /**
      * Marks a cell as being hit from a guess
@@ -105,7 +118,7 @@ public class Board {
         int index = 0;
         //places vertical ships
         //never makes it into if even though both conditions are met.
-        if (s.getIsHorizontal() == false  && noOverlap(s, row, col))// && (row + s.getCellsSize()-1) < NumRows && row > -1)//removed -1
+        if (s.getIsHorizontal() == false  && noOverlap(s, row, col) && (row + s.getCellsSize()-1) < NumRows && row > -1)//removed -1
         {
 
             index = 0;
