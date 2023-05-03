@@ -122,7 +122,7 @@ public class Board {
         {
 
             index = 0;
-            for (int i = row; i < row + s.getCellsSize() -1 ; i++)// removed -1
+            for (int i = row; i < row + s.getCellsSize() ; i++)// removed -1
             {
                 gameBoard.put(findKey(i, col), s.getIdx(index));
                 index++;
@@ -134,7 +134,7 @@ public class Board {
         else if (s.getIsHorizontal() &&  noOverlap(s, row, col) && (col + s.getCellsSize() - 1) < NumCols && col > -1)//removed -1
         {
             index = 0;
-            for (int i = col; i < col + s.getCellsSize() - 1; i++)// removed -1
+            for (int i = col; i < col + s.getCellsSize() ; i++)// removed -1
             {
                 gameBoard.put(findKey(row, i), s.getIdx(index));
                 index++;

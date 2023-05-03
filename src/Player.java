@@ -14,10 +14,17 @@ public class Player {
         {
            for (int j = 0; j < theirBoard.getNumCols(); j++)
             {
-               if (theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsShip() && !theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsHit());
-                {
-                    return false;
-                }
+if (theirBoard.getGameBoard().get(theirBoard.findKey(i,j)) == null)
+{
+    break;
+}
+                //{
+                    if (!theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsHit() && theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsShip()) {
+                        System.out.println((theirBoard.getGameBoard().get(theirBoard.findKey(i, j)).getIsShip()));
+                        System.out.println(theirBoard.getGameBoard().get(theirBoard.findKey(i, j)).getIsHit());
+                        return false;
+                    }
+               // }
             }
 
         }
