@@ -60,7 +60,7 @@ public class Board {
             {
                 if (gameBoard.get(findKey(row,i)) != null && !gameBoard.get(findKey(i,col)).getIsShip())
                 {
-                    return  false;
+                    return false;
                 }
             }
         }
@@ -105,10 +105,10 @@ public class Board {
         int index = 0;
         //places vertical ships
         //never makes it into if even though both conditions are met.
-        if (!s.getIsHorizontal()   && noOverlap(s, row, col))// && (row + s.getCellsSize()-1) < NumRows && row > -1)//removed -1
+        if (s.getIsHorizontal() == false  && noOverlap(s, row, col))// && (row + s.getCellsSize()-1) < NumRows && row > -1)//removed -1
         {
 
-             index = 0;
+            index = 0;
             for (int i = row; i < row + s.getCellsSize() -1 ; i++)// removed -1
             {
                 gameBoard.put(findKey(i, col), s.getIdx(index));
@@ -118,7 +118,7 @@ public class Board {
 
         }
 //places horizontal ships
-        if (s.getIsHorizontal() &&  noOverlap(s, row, col) && (col + s.getCellsSize() - 1) < NumCols && col > -1)//removed -1
+        else if (s.getIsHorizontal() &&  noOverlap(s, row, col) && (col + s.getCellsSize() - 1) < NumCols && col > -1)//removed -1
         {
             index = 0;
             for (int i = col; i < col + s.getCellsSize() - 1; i++)// removed -1
