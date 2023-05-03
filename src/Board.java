@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -23,6 +24,7 @@ public class Board {
     private HashMap<Integer, Cell> gameBoard;
     private int NumRows = 10;
     private int NumCols = 10;
+    private ArrayList<Ship> placedShips = new ArrayList<>();
 
     /**
      * Initializes a game board and sets each cell key, and the value to null.
@@ -90,6 +92,56 @@ public class Board {
 
     }
 
+    /**
+     * Finds any ships that are sunk and returns an announcement that it is
+      * @return a string with the name of the ship saying its sunk
+     */
+public String isSunk ()
+{
+    int total = placedShips.size();
+    int remaining = 0;
+    for (int i = 0; i < placedShips.size(); i++)
+    {
+        if(placedShips.get(i).getIsHorizontal())
+        {
+            for (int j = placedShips.get(i).getCol(); j < placedShips.get(i).getCol() + placedShips.get(i).getCellsSize() ; j++)// removed -1
+            {
+                if (gameBoard.get(findKey(j, placedShips.get(i).getCol())) == null) {
+                    break;
+                }
+                if (!gameBoard.get(findKey(j, placedShips.get(i).getCol())).getIsHit())
+                {
+                   //TODO Figure out what to do if ship is not sunk
+                }
+                else {
+                    // todo : figure out what to send back if ship is sunk
+                    return "Shippy is Sunk!!!!";
+                }
+
+            }
+        }
+        if(!placedShips.get(i).getIsHorizontal())
+        {
+            for (int j = placedShips.get(i).getRow(); j < placedShips.get(i).getRow() + placedShips.get(i).getCellsSize() ; j++)// removed -1
+            {
+                if (gameBoard.get(findKey(j, placedShips.get(i).getRow())) == null) {
+                    break;
+                }
+                if (!gameBoard.get(findKey(placedShips.get(i).getRow(),j)).getIsHit())
+                {
+                    //TODO Figure out what to do if ship is not sunk
+                }
+                else {
+                    // todo : figure out what to send back if ship is sunk
+                }
+
+            }
+        }
+
+    }
+    return "Happy Days!!! BETTER FIX THIS";
+
+}
 
     /**
      * Marks a cell as being hit from a guess
@@ -120,7 +172,9 @@ public class Board {
         //never makes it into if even though both conditions are met.
         if (s.getIsHorizontal() == false  && noOverlap(s, row, col) && (row + s.getCellsSize()-1) < NumRows && row > -1)//removed -1
         {
-
+            s.setCol(col);
+            s.setRow(row);
+            placedShips.add(s);
             index = 0;
             for (int i = row; i < row + s.getCellsSize() ; i++)// removed -1
             {
@@ -133,6 +187,9 @@ public class Board {
 //places horizontal ships
         else if (s.getIsHorizontal() &&  noOverlap(s, row, col) && (col + s.getCellsSize() - 1) < NumCols && col > -1)//removed -1
         {
+            s.setCol(col);
+            s.setRow(row);
+            placedShips.add(s);
             index = 0;
             for (int i = col; i < col + s.getCellsSize() ; i++)// removed -1
             {
