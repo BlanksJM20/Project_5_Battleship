@@ -7,7 +7,7 @@ public class GameLoop {
     private Board p2b = new Board();
     private Player p1 = new Player(p1b);
     private Player p2 = new Player(p2b);
-    ArrayList<Ship> ships = new ArrayList<>();
+    //ArrayList<Ship> ships = new ArrayList<>();
 
 
     /**
@@ -80,6 +80,43 @@ public class GameLoop {
         int currentPlayer = 1;
         while(!p1.hasWon() && !p2.hasWon()){
             if(currentPlayer == 1){
+                System.out.println("PLAYER ONE:");
+                System.out.println(p1b.shipLocationBoardToString());
+                System.out.println(p2b.hitLocationToString());
+                System.out.println("Choose as Cell to shoot, row # then col # (X mark is a hit, O mark is a miss");
+                int row = scn.nextInt();
+                int column = scn.nextInt();
+                p2b.markHit(row, column);
+                //if(p2b.isSunk()){
+                //  do something
+                //}
+                System.out.println(p2b.hitLocationToString());
+                currentPlayer = 2;
+                System.out.println("Push any key to change turns and clear screen");
+                scn.next();
+                for(int i = 0; i <21; i++){
+                    System.out.println("DONT SCROLL UP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////////////////////////");
+                }
+
+            }
+            if(currentPlayer == 2){
+                System.out.println("PLAYER ONE:");
+                System.out.println(p2b.shipLocationBoardToString());
+                System.out.println(p1b.hitLocationToString());
+                System.out.println("Choose as Cell to shoot, row # then col # (X mark is a hit, O mark is a miss");
+                int row = scn.nextInt();
+                int column = scn.nextInt();
+                p1b.markHit(row, column);
+                //if(p1b.isSunk()){
+                //  do something
+                //}
+                System.out.println(p1b.hitLocationToString());
+                currentPlayer = 1;
+                System.out.println("Push any key to change turns and clear screen");
+                scn.next();
+                for(int i = 0; i <21; i++){
+                    System.out.println("DONT SCROLL UP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////////////////////////");
+                }
 
             }
         }

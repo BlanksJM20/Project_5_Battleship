@@ -98,6 +98,8 @@ public class Board {
      */
 public String isSunk ()
 {
+
+    //Seems like you would want to return a boolean
     int total = placedShips.size();
     int remaining = 0;
     for (int i = 0; i < placedShips.size(); i++)
