@@ -5,6 +5,7 @@ import java.util.ArrayList;
  * specified info for each cell.
  */
 public class Ship {
+    //Name of the Ship???
     private String name;
     private boolean isHorizontal;
 

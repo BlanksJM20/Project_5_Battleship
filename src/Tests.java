@@ -1,6 +1,7 @@
 public class Tests {
     public static void main(String[] args) throws Exception {
         Board b = new Board();
+        //
         Ship s = new Ship("Scout", 2,true);
         Ship c = new Ship ("Carrier", 5,false);
         System.out.println(b.shipLocationBoardToString());

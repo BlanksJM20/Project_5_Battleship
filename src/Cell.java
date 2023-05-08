@@ -2,6 +2,7 @@
  * This class contains detailed information on each cell
  */
 public class Cell {
+    //
 
     private boolean isHit;
     private boolean isShip;
