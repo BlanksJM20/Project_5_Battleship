@@ -23,8 +23,8 @@ if (theirBoard.getGameBoard().get(theirBoard.findKey(i,j)) == null)
 }
                 //{
                     if (!theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsHit() && theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsShip()) {
-                        System.out.println((theirBoard.getGameBoard().get(theirBoard.findKey(i, j)).getIsShip()));
-                        System.out.println(theirBoard.getGameBoard().get(theirBoard.findKey(i, j)).getIsHit());
+                        //System.out.println((theirBoard.getGameBoard().get(theirBoard.findKey(i, j)).getIsShip()));
+                        //System.out.println(theirBoard.getGameBoard().get(theirBoard.findKey(i, j)).getIsHit());
                         return false;
                     }
                // }

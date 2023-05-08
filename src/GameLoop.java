@@ -77,6 +77,16 @@ public class GameLoop {
         }
 
 
+        int currentPlayer = 1;
+        while(!p1.hasWon() && !p2.hasWon()){
+            if(currentPlayer == 1){
+
+            }
+        }
+
+
+
+
 
     }
 }
