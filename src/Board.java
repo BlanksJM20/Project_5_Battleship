@@ -202,6 +202,9 @@ public String isSunk ()
 
 //            System.out.println(index + " index");
 //            System.out.println(s.getIdx(index).toString());
+
+
+            //Hey bro make sure
             throw new Exception("Invalid position. Try again");
 
         }

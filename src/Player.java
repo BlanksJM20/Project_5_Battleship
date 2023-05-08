@@ -8,6 +8,8 @@ public class Player {
     }
 
 
+    //Seems like you could just put each players ships into a seperate arrayLists and when the a ship gets
+    //eliminated you remove it, if one players list has 0 then you win or something.
     public boolean hasWon ()
     {
         //
