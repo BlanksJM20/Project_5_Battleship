@@ -12,31 +12,19 @@ public class Player {
     //eliminated you remove it, if one players list has 0 then you win or something.
     public boolean hasWon ()
     {
+//        System.out.println("Number of ships: " + theirBoard.getPlacedShips().size());
         if (theirBoard.getPlacedShips().size() <= 0)
         {
+
+
             return true;
         }
         else {
+
+
             return false;
         }
     }
-//        //
-//        for (int i = 0; i < theirBoard.getNumRows(); i++)
-//        {
-//           for (int j = 0; j < theirBoard.getNumCols(); j++)
-//            {
-//if (theirBoard.getGameBoard().get(theirBoard.findKey(i,j)) == null)
-//{}
-//                //{
-//                   else if (!theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsHit() && theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsShip()) {
-////
-//                        return false;
-//                    }
-//               // }
-//            }
-//
-//        }
-//        return true;
-//    }
+
 
 }

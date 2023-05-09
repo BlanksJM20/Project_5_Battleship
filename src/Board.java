@@ -131,7 +131,7 @@ public class Board {
                 System.out.println("YAYAYAYAYAYAYAYAYAYAYAYAYAYAY!!!!!!");
                 System.out.println(placedShips.get(i).getName() + " is sunk.");
                 placedShips.remove(i);
-                System.out.println(placedShips.size());
+               // System.out.println(placedShips.size());
                 i = -1;
             }
 

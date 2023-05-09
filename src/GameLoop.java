@@ -22,17 +22,17 @@ public class GameLoop {
         //Ship carrier = new Ship("Carrier", 5,);
 
         HashMap<String, Integer> shipNames = new HashMap<>();
-//        shipNames.put("Carrier", 5);
-//        shipNames.put("Battleship", 4);
-//        shipNames.put("Submarine", 3);
-//        shipNames.put("Cruiser", 3);
+        shipNames.put("Carrier", 5);
+        shipNames.put("Battleship", 4);
+        shipNames.put("Submarine", 3);
+        shipNames.put("Cruiser", 3);
         shipNames.put("Destroyer", 2);
 
         ArrayList<String> shipName = new ArrayList<>();
-//        shipName.add("Carrier");
-//        shipName.add("Battleship");
-//        shipName.add("Submarine");
-//        shipName.add("Cruiser");
+        shipName.add("Carrier");
+        shipName.add("Battleship");
+        shipName.add("Submarine");
+        shipName.add("Cruiser");
         shipName.add("Destroyer");
         boolean reLoop = false;
 
@@ -181,7 +181,7 @@ public class GameLoop {
 
                 System.out.println(p2b.hitLocationToString());
                 p2b.isSunk();
-                if (p1.hasWon())
+                if (p2.hasWon())
                 {
                     break;
                 }
@@ -216,7 +216,7 @@ public class GameLoop {
 
                 System.out.println(p1b.hitLocationToString());
                 p1b.isSunk();
-                if (p2.hasWon())
+                if (p1.hasWon())
                 {
                     break;
                 }
@@ -237,12 +237,13 @@ public class GameLoop {
                 System.out.println();
 
             }
+
         }
-        if(p1.hasWon()){
-            System.out.println("Player ONE is VICTORIOUS");
-        }
-        if(p2.hasWon()){
-            System.out.println("Player TWO is VICTORIOUS");
+            if(p1.hasWon()){
+                System.out.println("Player TWO is VICTORIOUS");
+            }
+            if(p2.hasWon()){
+                System.out.println("Player ONE is VICTORIOUS");
         }
 
 
