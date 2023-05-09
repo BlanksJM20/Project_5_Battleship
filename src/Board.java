@@ -164,12 +164,12 @@ public void isSunk ()
                        System.out.println("YAYAYAYAYAYAYAYAYAYAYAYAYAYAY!!!!!!");
             System.out.println(placedShips.get(i).getName() + " is sunk.");
             placedShips.remove(i);
+            i = -1;
         }
 
     }
 
-//    System.out.println("error in board 154");
-   // return false;
+
 }
 
 
@@ -265,7 +265,7 @@ public void isSunk ()
             for (int j = 0; j < NumCols; j++)
             {
                 gb = gb +"|_";
-                if (gameBoard.get(findKey(i,j)) == null)
+                if (gameBoard.get(findKey(i,j)) == null || !gameBoard.get((findKey(i,j))).getIsShip())
                 {
                     gb = gb + " _";
                 }

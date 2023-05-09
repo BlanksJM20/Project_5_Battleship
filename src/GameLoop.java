@@ -90,6 +90,14 @@ public class GameLoop {
             System.out.println();
             System.out.println("DONT SCROLL UP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////////////////////////");
         }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
 
 
         System.out.println(p2b.shipLocationBoardToString());
@@ -147,6 +155,14 @@ public class GameLoop {
             System.out.println();
             System.out.println("DON'T SCROLL UP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////////////////////////");
         }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
 
 
         int currentPlayer = 1;
@@ -172,10 +188,18 @@ public class GameLoop {
                     System.out.println();
                     System.out.println("DONT SCROLL UP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////////////////////////");
                 }
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
 
             }
             if(currentPlayer == 2){
-                System.out.println("PLAYER ONE:");
+                System.out.println("PLAYER Two:");
                 System.out.println(p2b.shipLocationBoardToString());
                 System.out.println(p1b.hitLocationToString());
                 System.out.println("Choose as Cell to shoot, row # then col # (X mark is a hit, O mark is a miss");
@@ -195,6 +219,14 @@ public class GameLoop {
                     System.out.println();
                     System.out.println("DONT SCROLL UP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////////////////////////");
                 }
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
 
             }
         }
