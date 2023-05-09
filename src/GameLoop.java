@@ -182,6 +182,7 @@ public class GameLoop {
                    }catch (Exception e)
                    {
                        System.out.println("Invalid Input. Please try again");
+                scn.next();
                    }
                }
 
@@ -223,6 +224,7 @@ public class GameLoop {
                     }catch (Exception e)
                     {
                         System.out.println("Invalid Input. Please try again");
+                   scn.next();
                     }
                 }
 
