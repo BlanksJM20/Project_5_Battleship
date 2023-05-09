@@ -12,26 +12,31 @@ public class Player {
     //eliminated you remove it, if one players list has 0 then you win or something.
     public boolean hasWon ()
     {
-        //
-        for (int i = 0; i < theirBoard.getNumRows(); i++)
+        if (theirBoard.getPlacedShips().size() <= 0)
         {
-           for (int j = 0; j < theirBoard.getNumCols(); j++)
-            {
-if (theirBoard.getGameBoard().get(theirBoard.findKey(i,j)) == null)
-{
-    break;
-}
-                //{
-                    if (!theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsHit() && theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsShip()) {
-//                        System.out.println((theirBoard.getGameBoard().get(theirBoard.findKey(i, j)).getIsShip()));
-//                        System.out.println(theirBoard.getGameBoard().get(theirBoard.findKey(i, j)).getIsHit());
-                        return false;
-                    }
-               // }
-            }
-
+            return true;
         }
-        return true;
+        else {
+            return false;
+        }
     }
+//        //
+//        for (int i = 0; i < theirBoard.getNumRows(); i++)
+//        {
+//           for (int j = 0; j < theirBoard.getNumCols(); j++)
+//            {
+//if (theirBoard.getGameBoard().get(theirBoard.findKey(i,j)) == null)
+//{}
+//                //{
+//                   else if (!theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsHit() && theirBoard.getGameBoard().get(theirBoard.findKey(i,j)).getIsShip()) {
+////
+//                        return false;
+//                    }
+//               // }
+//            }
+//
+//        }
+//        return true;
+//    }
 
 }

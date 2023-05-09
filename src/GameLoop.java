@@ -181,6 +181,10 @@ public class GameLoop {
 
                 System.out.println(p2b.hitLocationToString());
                 p2b.isSunk();
+                if (p1.hasWon())
+                {
+                    break;
+                }
                 currentPlayer = 2;
                 System.out.println("Push any key to change turns and clear screen");
                 scn.next();
@@ -212,6 +216,10 @@ public class GameLoop {
 
                 System.out.println(p1b.hitLocationToString());
                 p1b.isSunk();
+                if (p2.hasWon())
+                {
+                    break;
+                }
                 currentPlayer = 1;
                 System.out.println("Push any key to change turns and clear screen");
                 scn.next();
