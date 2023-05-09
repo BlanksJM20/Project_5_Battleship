@@ -120,6 +120,12 @@ public class GameLoop {
 
             }
         }
+        if(p1.hasWon()){
+            System.out.println("Player ONE is VICTORIOUS");
+        }
+        if(p2.hasWon()){
+            System.out.println("Player TWO is VICTORIOUS");
+        }
 
 
 
