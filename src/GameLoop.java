@@ -178,6 +178,7 @@ public class GameLoop {
                        System.out.println("Enter the Column of the cell you want to shoot");
                        int column = scn.nextInt();
                        p2b.markHit(row, column);
+                       break;
                    }catch (Exception e)
                    {
                        System.out.println("Invalid Input. Please try again");
@@ -218,6 +219,7 @@ public class GameLoop {
                         System.out.println("Enter the column of the cell you want to shoot");
                         int column = scn.nextInt();
                         p1b.markHit(row, column);
+                        break;
                     }catch (Exception e)
                     {
                         System.out.println("Invalid Input. Please try again");
