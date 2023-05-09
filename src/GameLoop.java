@@ -171,13 +171,18 @@ public class GameLoop {
                 System.out.println("PLAYER ONE:");
                 System.out.println(p1b.shipLocationBoardToString());
                 System.out.println(p2b.hitLocationToString());
-                System.out.println("Choose as Cell to shoot, row # then col # (X mark is a hit, O mark is a miss");
-                int row = scn.nextInt();
-                int column = scn.nextInt();
-                p2b.markHit(row, column);
-                //if(p2b.isSunk()){
-                //  do something
-                //}
+               while (reLoop == false) {
+                   try {
+                       System.out.println("Enter the row of the cell you want to shoot (X mark is a hit, O mark is a miss");
+                       int row = scn.nextInt();
+                       System.out.println("Enter the Column of the cell you want to shoot");
+                       int column = scn.nextInt();
+                       p2b.markHit(row, column);
+                   }catch (Exception e)
+                   {
+                       System.out.println("Invalid Input. Please try again");
+                   }
+               }
 
                 System.out.println(p2b.hitLocationToString());
                 p2b.isSunk();
@@ -206,13 +211,19 @@ public class GameLoop {
                 System.out.println("PLAYER Two:");
                 System.out.println(p2b.shipLocationBoardToString());
                 System.out.println(p1b.hitLocationToString());
-                System.out.println("Choose as Cell to shoot, row # then col # (X mark is a hit, O mark is a miss");
-                int row = scn.nextInt();
-                int column = scn.nextInt();
-                p1b.markHit(row, column);
-                //if(p1b.isSunk()){
-                //  do something
-                //}
+               while (reLoop == false) {
+                    try {
+                        System.out.println("Enter the row of the cell you want to shoot (X mark is a hit, O mark is a miss");
+                        int row = scn.nextInt();
+                        System.out.println("Enter the column of the cell you want to shoot");
+                        int column = scn.nextInt();
+                        p1b.markHit(row, column);
+                    }catch (Exception e)
+                    {
+                        System.out.println("Invalid Input. Please try again");
+                    }
+                }
+
 
                 System.out.println(p1b.hitLocationToString());
                 p1b.isSunk();
