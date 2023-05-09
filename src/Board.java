@@ -96,29 +96,39 @@ public class Board {
      * Finds any ships that are sunk and returns an announcement that it is
       * @return a string with the name of the ship saying its sunk
      */
-public String isSunk ()
+public void isSunk ()
 {
 
     //Seems like you would want to return a boolean
     int total = placedShips.size();
-    int remaining = 0;
+    int remaining ;
     for (int i = 0; i < placedShips.size(); i++)
     {
+        remaining = placedShips.get(i).getCellsSize();
         if(placedShips.get(i).getIsHorizontal())
         {
             for (int j = placedShips.get(i).getCol(); j < placedShips.get(i).getCol() + placedShips.get(i).getCellsSize() ; j++)// removed -1
             {
-                if (gameBoard.get(findKey(j, placedShips.get(i).getCol())) == null) {
+                if (gameBoard.get(findKey(j, placedShips.get(i).getCol())) == null ) {
                     break;
                 }
-                if (!gameBoard.get(findKey(j, placedShips.get(i).getCol())).getIsHit())
+              else  if (!gameBoard.get(findKey(j, placedShips.get(i).getCol())).getIsHit())
                 {
                    //TODO Figure out what to do if ship is not sunk
+                  //  return false;
                 }
-                else {
-                    // todo : figure out what to send back if ship is sunk
-                    return "Shippy is Sunk!!!!";
-                }
+//                else if (remaining <= 0 )
+//                {
+//                    // todo : figure out what to send back if ship is sunk
+//                //    remaining--;
+//                    System.out.println("YAYAYAYAYAYAYAYAYAYAYAYAYAYAY!!!!!!");
+//                    System.out.println(placedShips.get(i).getName() + " is sunk.");
+//                    placedShips.remove(i);
+//                   // return true;
+//                }
+               else if (gameBoard.get(findKey(j, placedShips.get(i).getCol())).getIsHit() ) {
+            remaining--;
+        }
 
             }
         }
@@ -126,23 +136,40 @@ public String isSunk ()
         {
             for (int j = placedShips.get(i).getRow(); j < placedShips.get(i).getRow() + placedShips.get(i).getCellsSize() ; j++)// removed -1
             {
-                if (gameBoard.get(findKey(j, placedShips.get(i).getRow())) == null) {
+                if (gameBoard.get(findKey(placedShips.get(i).getRow(),j)) == null){// || !gameBoard.get(findKey(j, placedShips.get(i).getRow())).getIsHit() ) {
                     break;
                 }
-                if (!gameBoard.get(findKey(placedShips.get(i).getRow(),j)).getIsHit())
+                else if (!gameBoard.get(findKey(placedShips.get(i).getRow(),j)).getIsHit())
                 {
                     //TODO Figure out what to do if ship is not sunk
+                  //  return false;
                 }
-                else {
-                    // todo : figure out what to send back if ship is sunk
+//                else if (remaining <= 0 )
+//                {
+//                    // todo : figure out what to send back if ship is sunk
+//                  //  remaining--;
+//                    System.out.println("YAYAYAYAYAYAYAYAYAYAYAYAYAYAY!!!!!!");
+//
+//                    System.out.println(placedShips.get(i).getName() + " is sunk." );
+//                    placedShips.remove(i);
+//                  //  return true;
+//                }
+                else if (gameBoard.get(findKey(placedShips.get(i).getRow(),j)).getIsHit() ) {
+                    remaining--;
                 }
 
             }
         }
+        if (remaining <= 0 ) {
+                       System.out.println("YAYAYAYAYAYAYAYAYAYAYAYAYAYAY!!!!!!");
+            System.out.println(placedShips.get(i).getName() + " is sunk.");
+            placedShips.remove(i);
+        }
 
     }
-    return "Happy Days!!! BETTER FIX THIS";
 
+//    System.out.println("error in board 154");
+   // return false;
 }
 
 
@@ -288,26 +315,26 @@ public String isSunk ()
     }
 
 
-//To string method tests.
-        public static void main (String[]args) throws Exception {
-            Board b = new Board();
-            System.out.println(b.shipLocationBoardToString());
-            Ship s = new Ship("BattleShip", 5, false);
-            b.addShip(s, 3, 5);
-            System.out.println(b.shipLocationBoardToString());
-            b.markHit(3,5);
-            b.markHit(3,4);
-            System.out.println(b.hitLocationToString());
+////To string method tests.
+//        public static void main (String[]args) throws Exception {
+//            Board b = new Board();
 //            System.out.println(b.shipLocationBoardToString());
-//            Ship l = new Ship("BattleShip", 3, false);
-//            b.addShip(l, 6, 5);
+//            Ship s = new Ship("BattleShip", 5, false);
+//            b.addShip(s, 3, 5);
 //            System.out.println(b.shipLocationBoardToString());
 //            b.markHit(3,5);
 //            b.markHit(3,4);
 //            System.out.println(b.hitLocationToString());
-
-
-        }
+////            System.out.println(b.shipLocationBoardToString());
+////            Ship l = new Ship("BattleShip", 3, false);
+////            b.addShip(l, 6, 5);
+////            System.out.println(b.shipLocationBoardToString());
+////            b.markHit(3,5);
+////            b.markHit(3,4);
+////            System.out.println(b.hitLocationToString());
+//
+//
+//        }
 }
 
 

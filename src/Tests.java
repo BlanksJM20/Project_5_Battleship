@@ -26,10 +26,10 @@ public class Tests {
    b1.markHit(0,0);
         System.out.println(b1.hitLocationToString());
         System.out.println(p.hasWon() + " < should say false");
-        System.out.println(b1.isSunk() + " < Should not say sunk");
+        //     System.out.println(b1.isSunk() + " < Should not say sunk");
         b1.markHit(0,1);
         System.out.println(b1.hitLocationToString());
         System.out.println(p.hasWon() + " < should say true");
-        System.out.println(b1.isSunk() + " < Should say sunk");
+    //    System.out.println(b1.isSunk() + " < Should say sunk");
     }
 }
