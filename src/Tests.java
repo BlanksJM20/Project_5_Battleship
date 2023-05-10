@@ -1,4 +1,10 @@
 public class Tests {
+
+    /**
+     * Tests for various parts of board
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         Board b = new Board();
         //

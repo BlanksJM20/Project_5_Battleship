@@ -21,11 +21,19 @@ public class Board {
 //    8|__|__|__|__|__|__|__|__|__|__|
 //    9|__|__|__|__|__|__|__|__|__|__|
 
+    //Hash map that has a number key for a cell value
     private HashMap<Integer, Cell> gameBoard;
+    //The number of rows
     private int NumRows = 10;
+    //The number of columns
     private int NumCols = 10;
+    //An array list of placed ships
     private ArrayList<Ship> placedShips = new ArrayList<>();
 
+    /**
+     * returns placedShips
+     * @return
+     */
     public ArrayList<Ship> getPlacedShips() {
         return placedShips;
     }
@@ -42,20 +50,38 @@ public class Board {
         }
     }
 
+    /**
+     * finds the key for a cell value based on row and col
+     * @param row
+     * @param col
+     * @return
+     */
     public int findKey(int row, int col) {
         int counter = 0;
         counter = (row * 50) + (col * 2);
         return counter;
     }
 
+    /**
+     * get NumCols
+     * @return
+     */
     public int getNumCols() {
         return NumCols;
     }
 
+    /**
+     * get numRows
+     * @return
+     */
     public int getNumRows() {
         return NumRows;
     }
 
+    /**
+     * gets gameBoard
+     * @return
+     */
     public HashMap<Integer, Cell> getGameBoard() {
         return gameBoard;
     }
@@ -208,6 +234,10 @@ public class Board {
     }
 
 
+    /**
+     * prints the ship location in a string
+     * @return
+     */
     public String shipLocationBoardToString() {
         //      0   1   2   3   4   5   6   7   8   9
         //     +–––––––--------––––––––––––––––––––––+
@@ -240,6 +270,10 @@ public class Board {
         return gb;
     }
 
+    /**
+     * prints the hitLocation to the String
+     * @return
+     */
     public String hitLocationToString() {
         //      0   1   2   3   4   5   6   7   8   9
         //     +–––––––--------––––––––––––––––––––––+

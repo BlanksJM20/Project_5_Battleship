@@ -3,9 +3,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 public class GameLoop {
     //Sets up the gameBoard
+    //Player one board
     private Board p1b = new Board();
+    //Player Two board
     private Board p2b = new Board();
+    //Player one
     private Player p1 = new Player(p1b);
+    //Player two
     private Player p2 = new Player(p2b);
     //ArrayList<Ship> ships = new ArrayList<>();
 
