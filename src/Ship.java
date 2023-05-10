@@ -54,6 +54,7 @@ public class Ship {
      * @param size size of the ship
      * @param isHorizontal if the ship is horizontal
      */
+    //
     public Ship (String name, int size, boolean isHorizontal )
     {
         this.cells = new ArrayList<>();

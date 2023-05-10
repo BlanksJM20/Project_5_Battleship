@@ -235,8 +235,10 @@ public class Board {
 
 
     /**
-     * prints the ship location in a string
-     * @return
+     * Prints the ShipLocation to the String in the form of a battleship board with Ships..
+     * This is what the User is looking at.
+     * @return String of position of ships
+     *
      */
     public String shipLocationBoardToString() {
         //      0   1   2   3   4   5   6   7   8   9
@@ -271,8 +273,9 @@ public class Board {
     }
 
     /**
-     * prints the hitLocation to the String
-     * @return
+     *Prints the hitLocation to the String in the form of a battleship board with hits and misses.
+     *This is what the User is looking at.
+     * @return String of battleship board
      */
     public String hitLocationToString() {
         //      0   1   2   3   4   5   6   7   8   9
