@@ -17,6 +17,26 @@ public class SinglePlayerGameLoop {
      */
     public boolean hasWon ()
 {
+    int count = 0;
+    for (int i = 0; i < 10 + 1; i ++) {
+        for (int j = 0; j < 10 + 1; j++) {
+            if (b.getGameBoard().get(b.findKey(i,j)) == null)
+            {
+
+            }
+          else  if (b.getGameBoard().get(b.findKey(i,j)).getIsShip())
+            {
+                count++;
+
+            }
+        }
+        if (count >99 )
+        {
+            boardFull = true;
+        }
+
+    }
+
 
     for (int i = 0; i < b.getNumCols(); i++)
     {
@@ -51,13 +71,13 @@ int laps = 0;
   {
 
       try {
-          int row = r.nextInt(9);
-          int col = r.nextInt(9);
+          int row = r.nextInt(10);
+          int col = r.nextInt(10);
           if (row >0 && col > 0 )
           {
               for (int i = row -1; i < row + 1; i ++)
               {
-                  for (int j = col - 1; i < col + 1; j ++)
+                  for (int j = col - 1; j < col + 1; j ++)
                   {
                       if (b.getGameBoard().get(b.findKey(i,j)).getIsShip())
                       {
@@ -65,10 +85,11 @@ int laps = 0;
                       }
                   }
               }
+              System.out.println("Added");
              b.addShip(y,row,col);
           }
-          row = r.nextInt(9);
-           col = r.nextInt(9);
+          row = r.nextInt(10);
+           col = r.nextInt(10);
           if (row >0 && col > 0 )
           {
               for (int i = row -1; i < row + 1; i ++)
@@ -81,18 +102,20 @@ int laps = 0;
                       }
                   }
               }
+              System.out.println("Added agian");
               b.addShip(z,row,col);
               hasWorked = true;
           }
           else{
-              b.addShip(y, r.nextInt(9), r.nextInt(9));
-              b.addShip(z, r.nextInt(9), r.nextInt(9));
+              System.out.println("else");
+              b.addShip(y, r.nextInt(10), r.nextInt(10));
+              b.addShip(z, r.nextInt(10), r.nextInt(10));
               hasWorked = true;
           }
           if (laps > 100 && laps < 100000)
           {
-              b.addShip(y, r.nextInt(9), r.nextInt(9));
-              b.addShip(z, r.nextInt(9), r.nextInt(9));
+              b.addShip(y, r.nextInt(10), r.nextInt(10));
+              b.addShip(z, r.nextInt(10), r.nextInt(10));
               hasWorked = true;
           }
           else if (laps > 100000) {
@@ -110,12 +133,12 @@ int laps = 0;
     {
         try {
             x = new Ship("x", 1, true);
-            b.addShip(x, r.nextInt(9), r.nextInt(9));
+            b.addShip(x, r.nextInt(10), r.nextInt(10));
         }catch (Exception e)
         {
             System.out.println(e.getMessage());
         }
-        System.out.println("The rules are simple: \n every time you miss, two new enemy cells appear in the board. \n" +
+        System.out.println("The rules are simple:\nevery time you miss, two new enemy cells appear in the board. \n" +
                 "Kill them all before the board fills up.");
         while (!hasWon() && !boardFull)
         {
@@ -123,12 +146,14 @@ int laps = 0;
             System.out.println(b.shipLocationBoardToString());
             while (reLoop) {
                 try {
+                    System.out.println(b.hitLocationToString());
+                    System.out.println(b.shipLocationBoardToString());
                     System.out.println("Enter the row of the cell you want to shoot (X mark is a hit, O mark is a miss");
                     int row = scn.nextInt();
                     System.out.println("Enter the Column of the cell you want to shoot");
                     int column = scn.nextInt();
                     b.markHit(row, column);
-                    break;
+
                 }catch (Exception e)
                 {
                     System.out.println("Invalid Input. Please try again");
@@ -146,15 +171,11 @@ int laps = 0;
             if (hasWon())
             {
                 System.out.println("YAYAYAYAAYAYAYAYAYAY: YOU WON!!!!");
+
             }
             else{
                 System.out.println("too bad. You lose");
             }
-
-
-
-
-
 
 
 
