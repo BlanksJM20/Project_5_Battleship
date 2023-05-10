@@ -119,7 +119,7 @@ public class Board {
      */
     public void isSunk() {
 
-        //Seems like you would want to return a boolean
+
         int total = placedShips.size();
         int remaining;
         for (int i = 0; i < placedShips.size(); i++) {
