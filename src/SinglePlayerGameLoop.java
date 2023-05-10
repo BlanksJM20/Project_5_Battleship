@@ -19,6 +19,11 @@ public class SinglePlayerGameLoop {
      * finds if you have killed all the ships
      * @return
      */
+    /**
+     * Finds out if the player has sucesfully killed all the cells
+     * Also runs through and sets boardFull to true if there is a ship in every cell.
+     * @return a boolean of true if has won.
+     */
     public boolean hasWon ()
 {
     int count = 0;
@@ -62,7 +67,8 @@ public class SinglePlayerGameLoop {
 
     /**
      * Algorithm for determining where to hide the next cells.
-     * Adds two new ships to the board
+     * Does it's best to space them out and avoid randomness
+     * Adds 1-2 new ships to the board each time it runs
      */
     public void add2 ()
 {
@@ -108,7 +114,6 @@ int laps = 0;
                       }
                   }
               }
-              System.out.println("Added agian");
               b.addShip(z,row,col);
               lastRow2 = row;
               lastCol2 = col;
@@ -127,7 +132,7 @@ int laps = 0;
               lastRow2 = row;
               lastCol2 = col;              hasWorked = true;
           }
-          if (laps > 100 && laps < 100000)
+          if (laps > 10000 && !hasWon())
           {
               b.addShip(y, r.nextInt(10), r.nextInt(10));
               b.addShip(z, r.nextInt(10), r.nextInt(10));
@@ -144,6 +149,10 @@ int laps = 0;
       }
   }
 }
+
+    /**
+     * runs through the single player game until the player wins or loses.
+     */
     public void gameLoop ()
     {
         try {
@@ -153,19 +162,20 @@ int laps = 0;
         {
             System.out.println(e.getMessage());
         }
-        System.out.println("The rules are simple:\nevery time you miss, a new enemy cells appear in the board. \n" +
+        System.out.println("The rules are simple:\nevery time you miss, a new enemy cell appear in the board. \n" +
                 "Kill them all before the board fills up.");
-        System.out.println("Be warned, if you don't win after the 2nd shot, your chances are basically 0");
+        System.out.println("Ships can appear in cells you already guessed and missed too");
+        System.out.println("So be warned, if you haven't won by your second shot, you might want to quit while you're ahead");
         while (!hasWon() && !boardFull)
         {
-            System.out.println(b.hitLocationToString());
-            System.out.println(b.shipLocationBoardToString());
+//
             while (reLoop) {
                 int row = 0;
                 int col = 0;
                 try {
                     System.out.println(b.hitLocationToString());
-                    System.out.println(b.shipLocationBoardToString());
+                    //todo: Cheat board displayed below
+                   System.out.println(b.shipLocationBoardToString());
                     System.out.println("Enter the row of the cell you want to shoot (X mark is a hit, O mark is a miss");
                      row = scn.nextInt();
                     System.out.println("Enter the Column of the cell you want to shoot");
@@ -192,7 +202,7 @@ int laps = 0;
 
             }
             else{
-                System.out.println("too bad. You lose");
+                System.out.println("TOO BAD, SOO SAD. YOU SIR, HAVE LOST");
             }
 
 

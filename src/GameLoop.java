@@ -11,8 +11,6 @@ public class GameLoop {
     private Player p1 = new Player(p1b);
     //Player two
     private Player p2 = new Player(p2b);
-    //ArrayList<Ship> ships = new ArrayList<>();
-
 
     /**
      * runGame: Runs the game class
@@ -23,7 +21,7 @@ public class GameLoop {
         System.out.println(p1b.shipLocationBoardToString());
         Scanner scn = new Scanner(System.in);
 
-        //Ship carrier = new Ship("Carrier", 5,);
+
 
         HashMap<String, Integer> shipNames = new HashMap<>();
         shipNames.put("Carrier", 5);

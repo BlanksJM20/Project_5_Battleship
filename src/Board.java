@@ -101,7 +101,7 @@ public class Board {
             }
         }
         if (!s.getIsHorizontal()) {
-            for (int i = row; i < row + s.getCellsSize() - 1; i++)//removed -1
+            for (int i = row; i < row + s.getCellsSize() - 1; i++)
             {
                 if (gameBoard.get(findKey(i, col)) != null && gameBoard.get(findKey(i, col)).getIsShip()) {
                     return false;
@@ -128,7 +128,7 @@ public class Board {
                 for (int j = placedShips.get(i).getCol(); j < placedShips.get(i).getCol() + placedShips.get(i).getCellsSize(); j++)// removed -1
                 {
                     if (gameBoard.get(findKey(placedShips.get(i).getRow(), j)) == null) {
-                        //  break;
+                        // avoids exception
                     } else if (!gameBoard.get(findKey(placedShips.get(i).getRow(), j)).getIsHit()) {
                         //isn't hit
                     } else if (gameBoard.get(findKey(placedShips.get(i).getRow(), j)).getIsHit()) {
@@ -142,7 +142,6 @@ public class Board {
                 for (int j = placedShips.get(i).getRow(); j < placedShips.get(i).getRow() + placedShips.get(i).getCellsSize(); j++)// removed -1
                 {
                     if (gameBoard.get(findKey(j, placedShips.get(i).getCol())) == null) {// || !gameBoard.get(findKey(j, placedShips.get(i).getRow())).getIsHit() ) {
-                        // break;
                     } else if (!gameBoard.get(findKey(j, placedShips.get(i).getCol())).getIsHit()) {
                         //Isn't sunk
                     }
@@ -157,7 +156,6 @@ public class Board {
                 System.out.println("YAYAYAYAYAYAYAYAYAYAYAYAYAYAY!!!!!!");
                 System.out.println(placedShips.get(i).getName() + " is sunk.");
                 placedShips.remove(i);
-               // System.out.println(placedShips.size());
                 i = -1;
             }
 
@@ -192,14 +190,13 @@ public class Board {
     public void addShip(Ship s, int row, int col) throws Exception {
         int index = 0;
         //places vertical ships
-        //never makes it into if even though both conditions are met.
         if (s.getIsHorizontal() == false && noOverlap(s, row, col) && (row + s.getCellsSize() - 1) < NumRows && row > -1)//removed -1
         {
             s.setCol(col);
             s.setRow(row);
             placedShips.add(s);
             index = 0;
-            for (int i = row; i < row + s.getCellsSize(); i++)// removed -1
+            for (int i = row; i < row + s.getCellsSize(); i++)
             {
                 gameBoard.put(findKey(i, col), s.getIdx(index));
                 index++;
@@ -214,7 +211,7 @@ public class Board {
             s.setRow(row);
             placedShips.add(s);
             index = 0;
-            for (int i = col; i < col + s.getCellsSize(); i++)// removed -1
+            for (int i = col; i < col + s.getCellsSize(); i++)
             {
                 gameBoard.put(findKey(row, i), s.getIdx(index));
                 index++;
@@ -223,11 +220,7 @@ public class Board {
 
         } else {
 
-//            System.out.println(index + " index");
-//            System.out.println(s.getIdx(index).toString());
-
-
-            //Hey bro make sure
+//
             throw new Exception("Invalid position. Try again");
 
         }
@@ -309,27 +302,6 @@ public class Board {
         return gb;
     }
 
-
-////To string method tests.
-//        public static void main (String[]args) throws Exception {
-//            Board b = new Board();
-//            System.out.println(b.shipLocationBoardToString());
-//            Ship s = new Ship("BattleShip", 5, false);
-//            b.addShip(s, 3, 5);
-//            System.out.println(b.shipLocationBoardToString());
-//            b.markHit(3,5);
-//            b.markHit(3,4);
-//            System.out.println(b.hitLocationToString());
-////            System.out.println(b.shipLocationBoardToString());
-////            Ship l = new Ship("BattleShip", 3, false);
-////            b.addShip(l, 6, 5);
-////            System.out.println(b.shipLocationBoardToString());
-////            b.markHit(3,5);
-////            b.markHit(3,4);
-////            System.out.println(b.hitLocationToString());
-//
-//
-//        }
 }
 
 
