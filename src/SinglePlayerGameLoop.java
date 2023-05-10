@@ -99,11 +99,10 @@ int laps = 0;
               lastRow1 = row;
               lastCol1 = col;
 
-          }
+
           row = r.nextInt(10);
            col = r.nextInt(10);
-          if (row >0 && col > 0 )
-          {
+
               for (int i = row -1; i < row + 1; i ++)
               {
                   for (int j = col - 1; i < col + 1; j ++)
@@ -134,14 +133,13 @@ int laps = 0;
           }
           if (laps > 10000 && !hasWon())
           {
-              b.addShip(y, r.nextInt(10), r.nextInt(10));
               b.addShip(z, r.nextInt(10), r.nextInt(10));
               hasWorked = true;
           }
-          else if (laps > 100000) {
-              boardFull = true;
-              break;
-          }
+//          else if (laps > 100000) {
+//              boardFull = true;
+//              break;
+//          }
 
       }catch (Exception e)
       {
@@ -153,8 +151,7 @@ int laps = 0;
     /**
      * runs through the single player game until the player wins or loses.
      */
-    public void gameLoop ()
-    {
+    public void gameLoop () throws InterruptedException {
         try {
             x = new Ship("x", 1, true);
             b.addShip(x, r.nextInt(10), r.nextInt(10));
@@ -162,10 +159,15 @@ int laps = 0;
         {
             System.out.println(e.getMessage());
         }
+        System.out.println("IMPORTANT!!!!");
+        Thread.sleep(500);
         System.out.println("The rules are simple:\nevery time you miss, a new enemy cell appear in the board. \n" +
                 "Kill them all before the board fills up.");
+        Thread.sleep(1050);
         System.out.println("Ships can appear in cells you already guessed and missed too");
+        Thread.sleep(1500);
         System.out.println("So be warned, if you haven't won by your second shot, you might want to quit while you're ahead");
+        Thread.sleep(5000);
         while (!hasWon() && !boardFull)
         {
 //
