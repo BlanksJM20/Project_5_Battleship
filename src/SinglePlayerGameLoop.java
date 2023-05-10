@@ -8,6 +8,10 @@ public class SinglePlayerGameLoop {
     boolean boardFull = false;
     boolean reLoop = true;
     Scanner scn = new Scanner(System.in);
+    int lastRow1 = 0;
+    int lastRow2 = 0;
+    int lastCol1 = 0;
+    int lastCol2 = 0;
 
 
 
@@ -85,8 +89,10 @@ int laps = 0;
                       }
                   }
               }
-              System.out.println("Added");
              b.addShip(y,row,col);
+              lastRow1 = row;
+              lastCol1 = col;
+
           }
           row = r.nextInt(10);
            col = r.nextInt(10);
@@ -104,13 +110,22 @@ int laps = 0;
               }
               System.out.println("Added agian");
               b.addShip(z,row,col);
+              lastRow2 = row;
+              lastCol2 = col;
               hasWorked = true;
           }
           else{
-              System.out.println("else");
-              b.addShip(y, r.nextInt(10), r.nextInt(10));
-              b.addShip(z, r.nextInt(10), r.nextInt(10));
-              hasWorked = true;
+              row = r.nextInt(10);
+              col = r.nextInt(10);
+              b.addShip(y, row, col);
+              lastRow1 = row;
+              lastCol1 = col;
+
+              row = r.nextInt(10);
+              col = r.nextInt(10);
+              b.addShip(z, row, col);
+              lastRow2 = row;
+              lastCol2 = col;              hasWorked = true;
           }
           if (laps > 100 && laps < 100000)
           {
@@ -138,21 +153,24 @@ int laps = 0;
         {
             System.out.println(e.getMessage());
         }
-        System.out.println("The rules are simple:\nevery time you miss, two new enemy cells appear in the board. \n" +
+        System.out.println("The rules are simple:\nevery time you miss, a new enemy cells appear in the board. \n" +
                 "Kill them all before the board fills up.");
+        System.out.println("Be warned, if you don't win after the 2nd shot, your chances are basically 0");
         while (!hasWon() && !boardFull)
         {
             System.out.println(b.hitLocationToString());
             System.out.println(b.shipLocationBoardToString());
             while (reLoop) {
+                int row = 0;
+                int col = 0;
                 try {
                     System.out.println(b.hitLocationToString());
                     System.out.println(b.shipLocationBoardToString());
                     System.out.println("Enter the row of the cell you want to shoot (X mark is a hit, O mark is a miss");
-                    int row = scn.nextInt();
+                     row = scn.nextInt();
                     System.out.println("Enter the Column of the cell you want to shoot");
-                    int column = scn.nextInt();
-                    b.markHit(row, column);
+                     col = scn.nextInt();
+                    b.markHit(row, col);
 
                 }catch (Exception e)
                 {
@@ -163,7 +181,7 @@ int laps = 0;
                 {
                     break;
                 }
-               else
+               if (!hasWon() ||!b.getGameBoard().get(b.findKey(lastRow1,lastCol1)).getIsHit() && !b.getGameBoard().get(b.findKey(lastRow2,lastCol2)).getIsHit())
                 {
                     add2();
                 }
